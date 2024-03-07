@@ -1,7 +1,7 @@
 
 KERN_DIR = /home/stoicus/imx6ull/bsp/100ask_imx6ull-sdk/Linux-4.9.88
 
-obj-m	+= gpio_drv.o
+obj-m	+= tem_drv.o
 
 all:
 	make -C $(KERN_DIR) M=`pwd` modules 
