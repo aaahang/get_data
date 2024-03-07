@@ -36,4 +36,8 @@
 #include <linux/fcntl.h>
 #include <linux/timer.h>
 
+int main(int argc, char **argv)
+{
 
+    return  0;
+}
