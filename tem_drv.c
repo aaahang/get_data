@@ -40,7 +40,7 @@
 #include <linux/fcntl.h>
 #include <linux/timer.h>
 #include "dht11.h"
-int tem1; //gpio 设备号
+int tem1 = 10; //gpio 设备号
 static  const struct  of_device_id  tem_get_device[] = 
 {
     {   
@@ -56,10 +56,12 @@ int tem_open(struct inode * node , struct file * fe)
 }
 ssize_t tem_read(struct file *fp, char __user * buf, size_t n , loff_t * loff)
 {
-    char  read_buf[2];
-    DHT11_Read_Data(&read_buf[0],&read_buf[1]);
-    copy_to_user(buf,read_buf,n);
-    return 2;
+    static u8  read_buf[2] ={0};
+    int re;
+    DHT11_Read_Data(&read_buf[0],&read_buf[1]); //温度为0 湿度为1
+    // printk("tem is %d  hum is %d\n", read_buf[0],read_buf[1]);
+    re = copy_to_user(buf,read_buf,n);
+    return re;
 }
 static struct file_operations tem_fp=
 {
@@ -69,23 +71,22 @@ static struct file_operations tem_fp=
 };
 
 #define MYDEV_CNT     1
+
+unsigned int mydev_major = 0;
+dev_t mydev_num = 0;
+struct cdev * tem_cdev;
+struct class * tem_class;
 int tem_getdata_probe(struct platform_device * tem_get_device ){
     struct device_node *tem_device_node;
+    int  ret ;
     tem_device_node = of_find_node_by_path("/tem_getdata");
     if(tem_device_node == NULL)
     {
         printk(KERN_EMERG "\t  get tem_device_node failed!  \n");
     }
-    int tem1 = of_get_named_gpio(tem_device_node,"tem1",0);
-    gpio_direction_input(tem1);
+    tem1 = of_get_named_gpio(tem_device_node,"tem1",0);
 
     // 注册字符驱动
-    int  ret ;
-    unsigned int mydev_major = 0;
-    dev_t mydev_num = 0;
-    struct cdev * tem_cdev;
-    struct class * tem_class;
-
     ret = alloc_chrdev_region(&mydev_num,0,1,"tem_dataget"); //分配设备号
     mydev_major = MAJOR(mydev_num); 
     if(ret < 0)
@@ -122,17 +123,26 @@ int tem_getdata_probe(struct platform_device * tem_get_device ){
         return -EINVAL;
 
 }
-int tem_getdata_remove(struct platform_device *);
+int tem_getdata_remove(struct platform_device * pd)
+{
+    device_destroy(tem_class,mydev_num);
+    class_destroy(tem_class);
+    cdev_del(tem_cdev);
+    unregister_chrdev_region(mydev_num, MYDEV_CNT);
+    return 0;
+}
+
+
 
 static  struct platform_driver tem_get_driver= 
 {
     .probe  = tem_getdata_probe,
+    .remove = tem_getdata_remove,
     .driver = {
         .name = "tem_getdata_platform",
         .owner  = THIS_MODULE,
         .of_match_table  =  tem_get_device
     },
-    .remove = tem_getdata_remove
 
 };
 

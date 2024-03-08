@@ -6,17 +6,17 @@
 
 ********************LIGEN*************************/
 #include "dht11.h"
+#include "linux/printk.h"
 
 extern int tem1;
-#define DT GPIO_Pin_11
 #define DHT11_IO_IN()   gpio_direction_input(tem1)
 #define DHT11_IO_OUT()  gpio_direction_output(tem1,0)
 
 #define	DHT11_DQ_OUT(n)  gpio_set_value(tem1,n)
-#define	DHT11_DQ_IN  gpio_get_value(tem1)
+#define	DHT11_DQ_IN  	 gpio_get_value(tem1)
 
-#define Delay_ms(n) {	mdelay(n);}
-#define Delay_us(n) {	udelay(n);}
+#define Delay_ms(n) 	mdelay(n)
+#define Delay_us(n) 	udelay(n)
 
 //¸´Î»DHT11
 void DHT11_Rst(void)	   
@@ -93,11 +93,13 @@ u8 DHT11_Read_Data(u8 *temp,u8 *humi)
 		for(i=0;i<5;i++)//¶ÁÈ¡40Î»Êý¾Ý
 		{
 			buf[i]=DHT11_Read_Byte();
+			
 		}
 		if((buf[0]+buf[1]+buf[2]+buf[3])==buf[4])
 		{
 			*humi=buf[0];
 			*temp=buf[2];
+			printk("buf[0] is %d buf[1] is %d buf[2] is %d buf[3] is %d \n",buf[0],buf[1],buf[2],buf[3]);
 		}
 	}
 	else return 1;
