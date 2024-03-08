@@ -1,18 +1,23 @@
-cmd_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := arm-buildroot-linux-gnueabihf-gcc -Wp,-MD,/home/stoicus/imx6ull/source/tem_con/get_data/.tem_drv.o.d  -nostdinc -isystem /home/stoicus/imx6ull/bsp/100ask_imx6ull-sdk/ToolChain/arm-buildroot-linux-gnueabihf_sdk-buildroot/bin/../lib/gcc/arm-buildroot-linux-gnueabihf/7.5.0/include -I./arch/arm/include -I./arch/arm/include/generated/uapi -I./arch/arm/include/generated  -I./include -I./arch/arm/include/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -fno-dwarf2-cfi-asm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -fno-ipa-sra -mabi=aapcs-linux -mno-thumb-interwork -mfpu=vfp -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -DCC_HAVE_ASM_GOTO -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types  -DMODULE  -DKBUILD_BASENAME='"tem_drv"'  -DKBUILD_MODNAME='"tem_drv"' -c -o /home/stoicus/imx6ull/source/tem_con/get_data/.tmp_tem_drv.o /home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.c
+cmd_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := arm-buildroot-linux-gnueabihf-gcc -Wp,-MD,/home/stoicus/imx6ull/source/tem_con/get_data/.tem_drv.o.d  -nostdinc -isystem /home/stoicus/imx6ull/bsp/100ask_imx6ull-sdk/ToolChain/arm-buildroot-linux-gnueabihf_sdk-buildroot/bin/../lib/gcc/arm-buildroot-linux-gnueabihf/7.5.0/include -I./arch/arm/include -I./arch/arm/include/generated/uapi -I./arch/arm/include/generated  -I./include -I./arch/arm/include/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -fno-dwarf2-cfi-asm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -fno-ipa-sra -mabi=aapcs-linux -mno-thumb-interwork -mfpu=vfp -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -DCC_HAVE_ASM_GOTO -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -I/home/stoicus/imx6ull/source/tem_con/get_data  -DMODULE  -DKBUILD_BASENAME='"tem_drv"'  -DKBUILD_MODNAME='"tem_getdata"' -c -o /home/stoicus/imx6ull/source/tem_con/get_data/.tmp_tem_drv.o /home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.c
 
 source_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := /home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.c
 
 deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
-  arch/arm/include/asm/io.h \
-    $(wildcard include/config/arm/dma/mem/bufferable.h) \
-    $(wildcard include/config/pci.h) \
-    $(wildcard include/config/need/mach/io/h.h) \
-    $(wildcard include/config/pcmcia/soc/common.h) \
-    $(wildcard include/config/isa.h) \
-    $(wildcard include/config/pccard.h) \
+  arch/arm/include/asm/gpio.h \
+    $(wildcard include/config/arch/nr/gpio.h) \
+  include/asm-generic/gpio.h \
+    $(wildcard include/config/gpiolib.h) \
+  include/linux/kernel.h \
+    $(wildcard include/config/lbdaf.h) \
+    $(wildcard include/config/preempt/voluntary.h) \
+    $(wildcard include/config/debug/atomic/sleep.h) \
     $(wildcard include/config/mmu.h) \
-  include/linux/string.h \
-    $(wildcard include/config/binary/printf.h) \
+    $(wildcard include/config/prove/locking.h) \
+    $(wildcard include/config/panic/timeout.h) \
+    $(wildcard include/config/tracing.h) \
+    $(wildcard include/config/ftrace/mcount/record.h) \
+  /home/stoicus/imx6ull/bsp/100ask_imx6ull-sdk/ToolChain/arm-buildroot-linux-gnueabihf_sdk-buildroot/lib/gcc/arm-buildroot-linux-gnueabihf/7.5.0/include/stdarg.h \
+  include/linux/linkage.h \
   include/linux/compiler.h \
     $(wildcard include/config/sparse/rcu/pointer.h) \
     $(wildcard include/config/trace/branch/profiling.h) \
@@ -39,28 +44,6 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/uapi/linux/stddef.h \
   arch/arm/include/uapi/asm/posix_types.h \
   include/uapi/asm-generic/posix_types.h \
-  include/linux/types.h \
-    $(wildcard include/config/have/uid16.h) \
-    $(wildcard include/config/uid16.h) \
-    $(wildcard include/config/lbdaf.h) \
-    $(wildcard include/config/arch/dma/addr/t/64bit.h) \
-    $(wildcard include/config/phys/addr/t/64bit.h) \
-  /home/stoicus/imx6ull/bsp/100ask_imx6ull-sdk/ToolChain/arm-buildroot-linux-gnueabihf_sdk-buildroot/lib/gcc/arm-buildroot-linux-gnueabihf/7.5.0/include/stdarg.h \
-  include/uapi/linux/string.h \
-  arch/arm/include/asm/string.h \
-  include/linux/blk_types.h \
-    $(wildcard include/config/block.h) \
-    $(wildcard include/config/blk/cgroup.h) \
-    $(wildcard include/config/blk/dev/integrity.h) \
-  include/linux/bvec.h \
-  include/linux/kernel.h \
-    $(wildcard include/config/preempt/voluntary.h) \
-    $(wildcard include/config/debug/atomic/sleep.h) \
-    $(wildcard include/config/prove/locking.h) \
-    $(wildcard include/config/panic/timeout.h) \
-    $(wildcard include/config/tracing.h) \
-    $(wildcard include/config/ftrace/mcount/record.h) \
-  include/linux/linkage.h \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/have/underscore/symbol/prefix.h) \
@@ -69,6 +52,11 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/trim/unused/ksyms.h) \
     $(wildcard include/config/unused/symbols.h) \
   arch/arm/include/asm/linkage.h \
+  include/linux/types.h \
+    $(wildcard include/config/have/uid16.h) \
+    $(wildcard include/config/uid16.h) \
+    $(wildcard include/config/arch/dma/addr/t/64bit.h) \
+    $(wildcard include/config/phys/addr/t/64bit.h) \
   include/linux/bitops.h \
   arch/arm/include/asm/bitops.h \
     $(wildcard include/config/smp.h) \
@@ -93,6 +81,7 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/cpu/xsc3.h) \
     $(wildcard include/config/cpu/fa526.h) \
     $(wildcard include/config/arm/heavy/mb.h) \
+    $(wildcard include/config/arm/dma/mem/bufferable.h) \
   include/asm-generic/barrier.h \
   include/asm-generic/bitops/non-atomic.h \
   include/asm-generic/bitops/fls64.h \
@@ -136,6 +125,53 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   arch/arm/include/asm/div64.h \
   arch/arm/include/asm/compiler.h \
   include/asm-generic/div64.h \
+  include/linux/errno.h \
+  include/uapi/linux/errno.h \
+  arch/arm/include/generated/asm/errno.h \
+  include/uapi/asm-generic/errno.h \
+  include/uapi/asm-generic/errno-base.h \
+  include/linux/of.h \
+    $(wildcard include/config/sparc.h) \
+    $(wildcard include/config/of/dynamic.h) \
+    $(wildcard include/config/of.h) \
+    $(wildcard include/config/attach/node.h) \
+    $(wildcard include/config/detach/node.h) \
+    $(wildcard include/config/add/property.h) \
+    $(wildcard include/config/remove/property.h) \
+    $(wildcard include/config/update/property.h) \
+    $(wildcard include/config/numa.h) \
+    $(wildcard include/config/of/numa.h) \
+    $(wildcard include/config/no/change.h) \
+    $(wildcard include/config/change/add.h) \
+    $(wildcard include/config/change/remove.h) \
+    $(wildcard include/config/of/resolve.h) \
+    $(wildcard include/config/of/overlay.h) \
+  include/linux/kobject.h \
+    $(wildcard include/config/uevent/helper.h) \
+    $(wildcard include/config/debug/kobject/release.h) \
+  include/linux/list.h \
+    $(wildcard include/config/debug/list.h) \
+  include/linux/poison.h \
+    $(wildcard include/config/illegal/pointer/value.h) \
+    $(wildcard include/config/page/poisoning/zero.h) \
+  include/uapi/linux/const.h \
+  include/linux/sysfs.h \
+    $(wildcard include/config/debug/lock/alloc.h) \
+    $(wildcard include/config/sysfs.h) \
+  include/linux/kernfs.h \
+    $(wildcard include/config/kernfs.h) \
+  include/linux/err.h \
+  include/linux/mutex.h \
+    $(wildcard include/config/debug/mutexes.h) \
+    $(wildcard include/config/mutex/spin/on/owner.h) \
+  arch/arm/include/generated/asm/current.h \
+  include/asm-generic/current.h \
+  include/linux/thread_info.h \
+    $(wildcard include/config/thread/info/in/task.h) \
+    $(wildcard include/config/compat.h) \
+    $(wildcard include/config/debug/stack/usage.h) \
+    $(wildcard include/config/have/arch/within/stack/frames.h) \
+    $(wildcard include/config/hardened/usercopy.h) \
   include/linux/bug.h \
     $(wildcard include/config/generic/bug.h) \
   arch/arm/include/asm/bug.h \
@@ -146,36 +182,12 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/asm-generic/bug.h \
     $(wildcard include/config/bug.h) \
     $(wildcard include/config/generic/bug/relative/pointers.h) \
-  arch/arm/include/asm/memory.h \
-    $(wildcard include/config/need/mach/memory/h.h) \
-    $(wildcard include/config/page/offset.h) \
-    $(wildcard include/config/highmem.h) \
-    $(wildcard include/config/dram/base.h) \
-    $(wildcard include/config/dram/size.h) \
-    $(wildcard include/config/have/tcm.h) \
-    $(wildcard include/config/arm/patch/phys/virt.h) \
-    $(wildcard include/config/phys/offset.h) \
-    $(wildcard include/config/xip/kernel.h) \
-    $(wildcard include/config/xip/phys/addr.h) \
-  include/uapi/linux/const.h \
-  include/linux/sizes.h \
-  include/asm-generic/memory_model.h \
-    $(wildcard include/config/flatmem.h) \
-    $(wildcard include/config/discontigmem.h) \
-    $(wildcard include/config/sparsemem/vmemmap.h) \
-    $(wildcard include/config/sparsemem.h) \
-  include/linux/pfn.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/no/generic/pci/ioport/map.h) \
-    $(wildcard include/config/generic/pci/iomap.h) \
-  include/xen/xen.h \
-    $(wildcard include/config/xen.h) \
-    $(wildcard include/config/xen/dom0.h) \
-    $(wildcard include/config/xen/pvh.h) \
-  include/asm-generic/io.h \
-    $(wildcard include/config/generic/iomap.h) \
-    $(wildcard include/config/has/ioport/map.h) \
-    $(wildcard include/config/virt/to/bus.h) \
+  arch/arm/include/asm/thread_info.h \
+    $(wildcard include/config/crunch.h) \
+    $(wildcard include/config/arm/thumbee.h) \
+  arch/arm/include/asm/fpstate.h \
+    $(wildcard include/config/vfpv3.h) \
+    $(wildcard include/config/iwmmxt.h) \
   arch/arm/include/asm/page.h \
     $(wildcard include/config/cpu/copy/v4wt.h) \
     $(wildcard include/config/cpu/copy/v4wb.h) \
@@ -188,44 +200,36 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/have/arch/pfn/valid.h) \
   arch/arm/include/asm/glue.h \
   arch/arm/include/asm/pgtable-2level-types.h \
+  arch/arm/include/asm/memory.h \
+    $(wildcard include/config/need/mach/memory/h.h) \
+    $(wildcard include/config/page/offset.h) \
+    $(wildcard include/config/highmem.h) \
+    $(wildcard include/config/dram/base.h) \
+    $(wildcard include/config/dram/size.h) \
+    $(wildcard include/config/have/tcm.h) \
+    $(wildcard include/config/arm/patch/phys/virt.h) \
+    $(wildcard include/config/phys/offset.h) \
+    $(wildcard include/config/xip/kernel.h) \
+    $(wildcard include/config/xip/phys/addr.h) \
+  include/linux/sizes.h \
+  include/asm-generic/memory_model.h \
+    $(wildcard include/config/flatmem.h) \
+    $(wildcard include/config/discontigmem.h) \
+    $(wildcard include/config/sparsemem/vmemmap.h) \
+    $(wildcard include/config/sparsemem.h) \
+  include/linux/pfn.h \
   include/asm-generic/getorder.h \
-  include/linux/vmalloc.h \
-  include/linux/spinlock.h \
-    $(wildcard include/config/debug/spinlock.h) \
-    $(wildcard include/config/generic/lockbreak.h) \
-    $(wildcard include/config/preempt.h) \
-    $(wildcard include/config/debug/lock/alloc.h) \
-  include/linux/preempt.h \
-    $(wildcard include/config/preempt/count.h) \
-    $(wildcard include/config/debug/preempt.h) \
-    $(wildcard include/config/preempt/notifiers.h) \
-  include/linux/list.h \
-    $(wildcard include/config/debug/list.h) \
-  include/linux/poison.h \
-    $(wildcard include/config/illegal/pointer/value.h) \
-    $(wildcard include/config/page/poisoning/zero.h) \
-  arch/arm/include/generated/asm/preempt.h \
-  include/asm-generic/preempt.h \
-  include/linux/thread_info.h \
-    $(wildcard include/config/thread/info/in/task.h) \
-    $(wildcard include/config/compat.h) \
-    $(wildcard include/config/debug/stack/usage.h) \
-    $(wildcard include/config/have/arch/within/stack/frames.h) \
-    $(wildcard include/config/hardened/usercopy.h) \
-  arch/arm/include/asm/thread_info.h \
-    $(wildcard include/config/crunch.h) \
-    $(wildcard include/config/arm/thumbee.h) \
-  arch/arm/include/asm/fpstate.h \
-    $(wildcard include/config/vfpv3.h) \
-    $(wildcard include/config/iwmmxt.h) \
-  include/linux/bottom_half.h \
   include/linux/spinlock_types.h \
+    $(wildcard include/config/generic/lockbreak.h) \
+    $(wildcard include/config/debug/spinlock.h) \
   arch/arm/include/asm/spinlock_types.h \
   include/linux/lockdep.h \
     $(wildcard include/config/lockdep.h) \
     $(wildcard include/config/lock/stat.h) \
   include/linux/rwlock_types.h \
-  arch/arm/include/asm/spinlock.h \
+  include/linux/atomic.h \
+    $(wildcard include/config/generic/atomic64.h) \
+  arch/arm/include/asm/atomic.h \
   include/linux/prefetch.h \
   arch/arm/include/asm/processor.h \
     $(wildcard include/config/have/hw/breakpoint.h) \
@@ -233,6 +237,38 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   arch/arm/include/asm/hw_breakpoint.h \
   arch/arm/include/asm/unified.h \
     $(wildcard include/config/arm/asm/unified.h) \
+  arch/arm/include/asm/cmpxchg.h \
+    $(wildcard include/config/cpu/sa110.h) \
+    $(wildcard include/config/cpu/v6.h) \
+  include/asm-generic/cmpxchg-local.h \
+  include/asm-generic/atomic-long.h \
+  include/linux/osq_lock.h \
+  include/linux/idr.h \
+  include/linux/rcupdate.h \
+    $(wildcard include/config/tiny/rcu.h) \
+    $(wildcard include/config/tree/rcu.h) \
+    $(wildcard include/config/preempt/rcu.h) \
+    $(wildcard include/config/rcu/trace.h) \
+    $(wildcard include/config/preempt/count.h) \
+    $(wildcard include/config/rcu/stall/common.h) \
+    $(wildcard include/config/no/hz/full.h) \
+    $(wildcard include/config/rcu/nocb/cpu.h) \
+    $(wildcard include/config/tasks/rcu.h) \
+    $(wildcard include/config/debug/objects/rcu/head.h) \
+    $(wildcard include/config/hotplug/cpu.h) \
+    $(wildcard include/config/prove/rcu.h) \
+    $(wildcard include/config/preempt.h) \
+    $(wildcard include/config/rcu/boost.h) \
+    $(wildcard include/config/rcu/nocb/cpu/all.h) \
+    $(wildcard include/config/no/hz/full/sysidle.h) \
+  include/linux/spinlock.h \
+  include/linux/preempt.h \
+    $(wildcard include/config/debug/preempt.h) \
+    $(wildcard include/config/preempt/notifiers.h) \
+  arch/arm/include/generated/asm/preempt.h \
+  include/asm-generic/preempt.h \
+  include/linux/bottom_half.h \
+  arch/arm/include/asm/spinlock.h \
   include/linux/rwlock.h \
   include/linux/spinlock_api_smp.h \
     $(wildcard include/config/inline/spin/lock.h) \
@@ -264,32 +300,6 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/inline/write/unlock/irq.h) \
     $(wildcard include/config/inline/read/unlock/irqrestore.h) \
     $(wildcard include/config/inline/write/unlock/irqrestore.h) \
-  include/linux/atomic.h \
-    $(wildcard include/config/generic/atomic64.h) \
-  arch/arm/include/asm/atomic.h \
-  arch/arm/include/asm/cmpxchg.h \
-    $(wildcard include/config/cpu/sa110.h) \
-    $(wildcard include/config/cpu/v6.h) \
-  include/asm-generic/cmpxchg-local.h \
-  include/asm-generic/atomic-long.h \
-  include/linux/llist.h \
-    $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
-  include/linux/rbtree.h \
-  include/linux/rcupdate.h \
-    $(wildcard include/config/tiny/rcu.h) \
-    $(wildcard include/config/tree/rcu.h) \
-    $(wildcard include/config/preempt/rcu.h) \
-    $(wildcard include/config/rcu/trace.h) \
-    $(wildcard include/config/rcu/stall/common.h) \
-    $(wildcard include/config/no/hz/full.h) \
-    $(wildcard include/config/rcu/nocb/cpu.h) \
-    $(wildcard include/config/tasks/rcu.h) \
-    $(wildcard include/config/debug/objects/rcu/head.h) \
-    $(wildcard include/config/hotplug/cpu.h) \
-    $(wildcard include/config/prove/rcu.h) \
-    $(wildcard include/config/rcu/boost.h) \
-    $(wildcard include/config/rcu/nocb/cpu/all.h) \
-    $(wildcard include/config/no/hz/full/sysidle.h) \
   include/linux/threads.h \
     $(wildcard include/config/nr/cpus.h) \
     $(wildcard include/config/base/small.h) \
@@ -298,11 +308,13 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/debug/per/cpu/maps.h) \
   include/linux/bitmap.h \
     $(wildcard include/config/s390.h) \
+  include/linux/string.h \
+    $(wildcard include/config/binary/printf.h) \
+  include/uapi/linux/string.h \
+  arch/arm/include/asm/string.h \
   include/linux/seqlock.h \
   include/linux/completion.h \
   include/linux/wait.h \
-  arch/arm/include/generated/asm/current.h \
-  include/asm-generic/current.h \
   include/uapi/linux/wait.h \
   include/linux/debugobjects.h \
     $(wildcard include/config/debug/objects.h) \
@@ -325,34 +337,8 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   arch/arm/include/asm/timex.h \
   include/generated/timeconst.h \
   include/linux/timekeeping.h \
-  include/linux/errno.h \
-  include/uapi/linux/errno.h \
-  arch/arm/include/generated/asm/errno.h \
-  include/uapi/asm-generic/errno.h \
-  include/uapi/asm-generic/errno-base.h \
   include/linux/rcutree.h \
-  arch/arm/include/asm/uaccess.h \
-    $(wildcard include/config/have/efficient/unaligned/access.h) \
-    $(wildcard include/config/cpu/sw/domain/pan.h) \
-    $(wildcard include/config/cpu/use/domains.h) \
-    $(wildcard include/config/uaccess/with/memcpy.h) \
-  arch/arm/include/asm/domain.h \
-    $(wildcard include/config/io/36.h) \
-    $(wildcard include/config/cpu/cp15/mmu.h) \
-  include/linux/cdev.h \
-  include/linux/kobject.h \
-    $(wildcard include/config/uevent/helper.h) \
-    $(wildcard include/config/debug/kobject/release.h) \
-  include/linux/sysfs.h \
-    $(wildcard include/config/sysfs.h) \
-  include/linux/kernfs.h \
-    $(wildcard include/config/kernfs.h) \
-  include/linux/err.h \
-  include/linux/mutex.h \
-    $(wildcard include/config/debug/mutexes.h) \
-    $(wildcard include/config/mutex/spin/on/owner.h) \
-  include/linux/osq_lock.h \
-  include/linux/idr.h \
+  include/linux/rbtree.h \
   include/linux/kobject_ns.h \
   include/linux/stat.h \
   arch/arm/include/uapi/asm/stat.h \
@@ -373,35 +359,9 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/linux/sysctl.h \
     $(wildcard include/config/sysctl.h) \
   include/uapi/linux/sysctl.h \
-  include/linux/kdev_t.h \
-  include/uapi/linux/kdev_t.h \
-  include/linux/dmi.h \
-    $(wildcard include/config/dmi.h) \
   include/linux/mod_devicetable.h \
   include/linux/uuid.h \
   include/uapi/linux/uuid.h \
-  include/linux/gpio.h \
-    $(wildcard include/config/gpiolib.h) \
-    $(wildcard include/config/arch/have/custom/gpio/h.h) \
-  arch/arm/include/asm/gpio.h \
-    $(wildcard include/config/arch/nr/gpio.h) \
-  include/asm-generic/gpio.h \
-  include/linux/of.h \
-    $(wildcard include/config/sparc.h) \
-    $(wildcard include/config/of/dynamic.h) \
-    $(wildcard include/config/of.h) \
-    $(wildcard include/config/attach/node.h) \
-    $(wildcard include/config/detach/node.h) \
-    $(wildcard include/config/add/property.h) \
-    $(wildcard include/config/remove/property.h) \
-    $(wildcard include/config/update/property.h) \
-    $(wildcard include/config/numa.h) \
-    $(wildcard include/config/of/numa.h) \
-    $(wildcard include/config/no/change.h) \
-    $(wildcard include/config/change/add.h) \
-    $(wildcard include/config/change/remove.h) \
-    $(wildcard include/config/of/resolve.h) \
-    $(wildcard include/config/of/overlay.h) \
   include/linux/topology.h \
     $(wildcard include/config/use/percpu/numa/node/id.h) \
     $(wildcard include/config/have/memoryless/nodes.h) \
@@ -453,6 +413,8 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/linux/srcu.h \
   include/linux/smp.h \
     $(wildcard include/config/up/late/init.h) \
+  include/linux/llist.h \
+    $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
   arch/arm/include/asm/smp.h \
   include/linux/percpu.h \
     $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
@@ -504,7 +466,10 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/quota.h) \
     $(wildcard include/config/fs/dax.h) \
     $(wildcard include/config/mandatory/file/locking.h) \
+    $(wildcard include/config/block.h) \
     $(wildcard include/config/migration.h) \
+  include/linux/kdev_t.h \
+  include/uapi/linux/kdev_t.h \
   include/linux/dcache.h \
   include/linux/rculist.h \
   include/linux/rculist_bl.h \
@@ -551,6 +516,10 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/linux/migrate_mode.h \
   include/linux/percpu-rwsem.h \
   include/linux/rcu_sync.h \
+  include/linux/blk_types.h \
+    $(wildcard include/config/blk/cgroup.h) \
+    $(wildcard include/config/blk/dev/integrity.h) \
+  include/linux/bvec.h \
   include/linux/delayed_call.h \
   include/uapi/linux/fs.h \
   include/uapi/linux/limits.h \
@@ -723,6 +692,24 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/uapi/linux/irqnr.h \
   include/linux/io.h \
     $(wildcard include/config/have/arch/huge/vmap.h) \
+    $(wildcard include/config/has/ioport/map.h) \
+  arch/arm/include/asm/io.h \
+    $(wildcard include/config/pci.h) \
+    $(wildcard include/config/need/mach/io/h.h) \
+    $(wildcard include/config/pcmcia/soc/common.h) \
+    $(wildcard include/config/isa.h) \
+    $(wildcard include/config/pccard.h) \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/no/generic/pci/ioport/map.h) \
+    $(wildcard include/config/generic/pci/iomap.h) \
+  include/xen/xen.h \
+    $(wildcard include/config/xen.h) \
+    $(wildcard include/config/xen/dom0.h) \
+    $(wildcard include/config/xen/pvh.h) \
+  include/asm-generic/io.h \
+    $(wildcard include/config/generic/iomap.h) \
+    $(wildcard include/config/virt/to/bus.h) \
+  include/linux/vmalloc.h \
   arch/arm/include/asm/irq.h \
     $(wildcard include/config/sparse/irq.h) \
     $(wildcard include/config/multi/irq/handler.h) \
@@ -739,6 +726,19 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
     $(wildcard include/config/generic/pinconf.h) \
   include/linux/gpio/consumer.h \
     $(wildcard include/config/gpio/sysfs.h) \
+  arch/arm/include/asm/uaccess.h \
+    $(wildcard include/config/have/efficient/unaligned/access.h) \
+    $(wildcard include/config/cpu/sw/domain/pan.h) \
+    $(wildcard include/config/cpu/use/domains.h) \
+    $(wildcard include/config/uaccess/with/memcpy.h) \
+  arch/arm/include/asm/domain.h \
+    $(wildcard include/config/io/36.h) \
+    $(wildcard include/config/cpu/cp15/mmu.h) \
+  include/linux/cdev.h \
+  include/linux/dmi.h \
+    $(wildcard include/config/dmi.h) \
+  include/linux/gpio.h \
+    $(wildcard include/config/arch/have/custom/gpio/h.h) \
   include/linux/jump_label.h \
   include/linux/node.h \
     $(wildcard include/config/memory/hotplug/sparse.h) \
@@ -824,6 +824,9 @@ deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o := \
   include/linux/kmemleak.h \
     $(wildcard include/config/debug/kmemleak.h) \
   include/linux/kasan.h \
+  /home/stoicus/imx6ull/source/tem_con/get_data/dht11.h \
+  include/linux/delay.h \
+  arch/arm/include/asm/delay.h \
 
 /home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o: $(deps_/home/stoicus/imx6ull/source/tem_con/get_data/tem_drv.o)
 

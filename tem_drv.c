@@ -39,6 +39,7 @@
 #include <linux/slab.h>
 #include <linux/fcntl.h>
 #include <linux/timer.h>
+#include "dht11.h"
 int tem1; //gpio 设备号
 static  const struct  of_device_id  tem_get_device[] = 
 {
@@ -55,11 +56,10 @@ int tem_open(struct inode * node , struct file * fe)
 }
 ssize_t tem_read(struct file *fp, char __user * buf, size_t n , loff_t * loff)
 {
-    int value ;
-    char * read_buf;
+    char  read_buf[2];
+    DHT11_Read_Data(&read_buf[0],&read_buf[1]);
     copy_to_user(buf,read_buf,n);
-
-    value =  gpio_get_value(tem1);
+    return 2;
 }
 static struct file_operations tem_fp=
 {

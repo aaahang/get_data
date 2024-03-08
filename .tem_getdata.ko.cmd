@@ -1,0 +1,1 @@
+cmd_/home/stoicus/imx6ull/source/tem_con/get_data/tem_getdata.ko := arm-buildroot-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/stoicus/imx6ull/source/tem_con/get_data/tem_getdata.ko /home/stoicus/imx6ull/source/tem_con/get_data/tem_getdata.o /home/stoicus/imx6ull/source/tem_con/get_data/tem_getdata.mod.o ;  true

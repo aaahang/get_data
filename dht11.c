@@ -5,65 +5,26 @@
  * ½Ó¿Ú    £ºPA11-DATA
 
 ********************LIGEN*************************/
-#include "asm-generic/gpio.h"
-#include "asm/gpio.h"
-#include "asm/io.h"
-#include "asm/uaccess.h"
-#include "linux/cdev.h"
-#include "linux/dmi.h"
-#include "linux/err.h"
-#include "linux/export.h"
-#include "linux/gpio.h"
-#include "linux/jump_label.h"
-#include "linux/kdev_t.h"
-#include "linux/mod_devicetable.h"
-#include "linux/node.h"
-#include "linux/of.h"
-#include "linux/printk.h"
-#include "linux/stddef.h"
-#include "linux/types.h"
-#include <linux/module.h>
-#include <linux/poll.h>
-#include <linux/fs.h>
-#include <linux/errno.h>
-#include <linux/miscdevice.h>
-#include <linux/kernel.h>
-#include <linux/major.h>
-#include <linux/mutex.h>
-#include <linux/proc_fs.h>
-#include <linux/seq_file.h>
-#include <linux/stat.h>
-#include <linux/init.h>
-#include <linux/device.h>
-#include <linux/tty.h>
-#include <linux/kmod.h>
-#include <linux/gfp.h>
-#include <linux/gpio/consumer.h>
-#include <linux/platform_device.h>
-#include <linux/of_gpio.h>
-#include <linux/of_irq.h>
-#include <linux/interrupt.h>
-#include <linux/irq.h>
-#include <linux/slab.h>
-#include <linux/fcntl.h>
-#include <linux/timer.h>
 #include "dht11.h"
 
 extern int tem1;
 #define DT GPIO_Pin_11
-#define DHT11_IO_IN()  {gpio_direction_output(tem1);}
-#define DHT11_IO_OUT() {gpio_direction_input(tem1);} 
+#define DHT11_IO_IN()   gpio_direction_input(tem1)
+#define DHT11_IO_OUT()  gpio_direction_output(tem1,0)
 
-#define	DHT11_DQ_OUT 
-#define	DHT11_DQ_IN  PAin(11) 
+#define	DHT11_DQ_OUT(n)  gpio_set_value(tem1,n)
+#define	DHT11_DQ_IN  gpio_get_value(tem1)
+
+#define Delay_ms(n) {	mdelay(n);}
+#define Delay_us(n) {	udelay(n);}
 
 //¸´Î»DHT11
 void DHT11_Rst(void)	   
 {                 
 	DHT11_IO_OUT(); 	//SET OUTPUT
-	DHT11_DQ_OUT=0; 	//À­µÍDQ
+	DHT11_DQ_OUT(0); 	//À­µÍDQ
 	Delay_ms(20);    	//À­µÍÖÁÉÙ18ms
-	DHT11_DQ_OUT=1; 	//DQ=1 
+	DHT11_DQ_OUT(1); 	//DQ=1 
 	Delay_us(30);     	//Ö÷»úÀ­¸ß20~40us
 }
 
